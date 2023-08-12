@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>testing family tree</title>
+</head>
+
+<body>
+  <script src="https://unpkg.com/gojs@2.3.10/release/go.js"></script>
+  <p>
+    This is a minimalist HTML and JavaScript skeleton of the GoJS Sample
+    <a href="https://gojs.net/latest/samples/familyTree.html">familyTree.html</a>. It was automatically generated from a
+    button on the sample page,
+    and does not contain the full HTML. It is intended as a starting point to adapt for your own usage.
+    For many samples, you may need to inspect the
+    <a href="https://github.com/NorthwoodsSoftware/GoJS/blob/master/samples/familyTree.html">full source on Github</a>
+    and copy other files or scripts.
+  </p>
+  <div id="allSampleContent" class="p-4 w-full">
+    <link href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700" rel="stylesheet" type="text/css">
+    <script type="text/javascript" src="../scripts/familyTree.js"></script>
+
+    <div id="sample">
+      <div id="myDiagramDiv"
+        style="background-color: white; border: 1px solid black; width: 100%; height: 550px; position: relative; -webkit-tap-highlight-color: rgba(255, 255, 255, 0); cursor: auto;">
+        <canvas tabindex="0" width="882" height="533"
+          style="position: absolute; top: 0px; left: 0px; z-index: 2; user-select: none; touch-action: none; width: 882px; height: 533px; cursor: auto;"></canvas>
+        <div style="position: absolute; overflow: auto; width: 882px; height: 548px; z-index: 1;">
+          <div style="position: absolute; width: 3237.39px; height: 1px;"></div>
+        </div>
+      </div>
+      <p><button id="zoomToFit">Zoom to Fit</button> <button id="centerRoot">Center on root</button></p>
+      <p>This family tree diagram shows several generations of British royalty beginning with George V (1865-1936).</p>
+      <p><a href="../api/symbols/Node.html" target="api">Node</a> data contains information about gender, and a data
+        binding assigns a corresponding color. Additional data is displayed with a tooltip. A key is placed on the
+        diagram using a <a href="../api/symbols/Panel.html#static-Table" target="api">Panel.Table</a>.</p>
+      <p>For a variation of this tree, see the <a href="familyTreeJP.html">Japanese family tree sample</a>.</p>
+      <p>For a more complex family tree see the <a href="genogram.html">genogram sample</a>.</p>
+      <p class="text-xs">GoJS version 2.3.10. Copyright 1998-2023 by Northwoods Software.</p>
+    </div>
+    <p><a href="https://github.com/NorthwoodsSoftware/GoJS/blob/master/samples/familyTree.html" target="_blank">View
+        this sample page's source on GitHub</a></p>
+  </div>
+</body>
+
+</html>
