@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+</html>
+
+<head>
+    <meta charset="utf-8">
+    <title>GedMap - your geneaology trees</title>
+    <link rel="stylesheet" href="../styles/gedmap.css">
+    <link rel="stylesheet" href="../styles/gentree.css">
+</head>
+
+<body>
+    <div class="wrapper">
+        <header class="header">
+            <h1>GedMap - geneaology tree viewer</h1>
+        </header>
+        <script src="https://unpkg.com/gojs@2.3.10/release/go.js"></script>
+        <script type="text/javascript" src="../scripts/familyTree.js"></script>
+        <article class="content">
+            <div id="myDiagramDiv" class="gentree">
+                {# <canvas tabindex="0" width="882" height="533"
+                    style="position: absolute; top: 0px; left: 0px; z-index: 2; user-select: none; touch-action: none; width: 882px; height: 533px; cursor: auto;"></canvas>
+                <div style="position: absolute; overflow: auto; width: 882px; height: 548px; z-index: 1;">
+                    <div style="position: absolute; width: 3237.39px; height: 1px;"></div>
+                </div> #}
+            </div>
+            <button id="centerRoot" class="btn save">Save tree layout</button>
+            <button id="zoomToFit" class="btn zoom">Zoom out</button>
+
+        </article>
+
+        <div class="block-a">Import your file: </div>
+        <div class="block-b">Currently viewing: </div>
+        <div class="block-c">Block C</div>
+        <footer class="footer">My footer</footer>
+    </div>
+</body>

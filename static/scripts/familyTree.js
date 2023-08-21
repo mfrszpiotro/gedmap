@@ -14,8 +14,8 @@ function init() {
                         { angle: 90, nodeSpacing: 10, layerSpacing: 40, layerStyle: go.TreeLayout.LayerUniform })
             });
 
-    var bluegrad = '#90CAF9';
-    var pinkgrad = '#F48FB1';
+    var bluegrad = '#2E8087';
+    var pinkgrad = '#7C9299';
 
     // Set up a Part as a legend, and place it directly on the diagram
     myDiagram.add(
