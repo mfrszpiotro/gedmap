@@ -19,20 +19,41 @@
         <script type="text/javascript" src="../scripts/familyTree.js"></script>
         <article class="content">
             <div id="myDiagramDiv" class="gentree">
-                {# <canvas tabindex="0" width="882" height="533"
-                    style="position: absolute; top: 0px; left: 0px; z-index: 2; user-select: none; touch-action: none; width: 882px; height: 533px; cursor: auto;"></canvas>
-                <div style="position: absolute; overflow: auto; width: 882px; height: 548px; z-index: 1;">
-                    <div style="position: absolute; width: 3237.39px; height: 1px;"></div>
-                </div> #}
+
             </div>
-            <button id="centerRoot" class="btn save">Save tree layout</button>
             <button id="zoomToFit" class="btn zoom">Zoom out</button>
+            <button id="centerRoot" class="btn save">Center on root</button>
+            <button id="fullscreen" class="btn save">Fullscreen mode</button>
+
 
         </article>
 
         <div class="block-a">Import your file: </div>
         <div class="block-b">Currently viewing: </div>
         <div class="block-c">Block C</div>
-        <footer class="footer">My footer</footer>
+        <footer class="footer">My footer
+            <textarea id="mySavedModel" style="width:100%; height:270px;">
+                { "class": "go.TreeModel",
+                "nodeDataArray": [
+                {"key":1, "name":"Stella Payne Diaz", "title":"1992 - Now", "pic":"1.jpg", "comments":"test"},
+                {"key":2, "name":"Luke Warm", "title":"1992 - Now", "pic":"2.jpg", "parent":1},
+                {"key":3, "name":"Meg Meehan Hoffa", "title":"1992 - Now", "pic":"3.jpg", "parent":2},
+                {"key":4, "name":"Peggy Flaming", "title":"1992 - Now", "pic":"4.jpg", "parent":1},
+                {"key":5, "name":"Saul Wellingood", "title":"1992 - Now", "pic":"5.jpg", "parent":4},
+                {"key":6, "name":"Al Ligori", "title":"1992 - Now", "pic":"6.jpg", "parent":2},
+                {"key":7, "name":"Dot Stubadd", "title":"1992 - Now", "pic":"7.jpg", "parent":3},
+                {"key":8, "name":"Les Ismore", "title":"1992 - Nowr", "pic":"8.jpg", "parent":5},
+                {"key":9, "name":"April Lynn Parris", "title":"1992 - Now", "pic":"9.jpg", "parent":6},
+                {"key":10, "name":"Xavier Breath", "title":"1992 - Now", "pic":"10.jpg", "parent":4},
+                {"key":11, "name":"Anita Hammer", "title":"1992 - Now", "pic":"11.jpg", "parent":5},
+                {"key":12, "name":"Billy Aiken", "title":"1992 - Now", "pic":"12.jpg", "parent":10},
+                {"key":13, "name":"Stan Wellback", "title":"1992 - Now", "pic":"13.jpg", "parent":10},
+                {"key":14, "name":"Marge Innovera", "title":"1992 - Now", "pic":"14.jpg", "parent":10},
+                {"key":15, "name":"Evan Elpus", "title":"1992 - Now", "pic":"15.jpg", "parent":5},
+                {"key":16, "name":"Lotta B. Essen", "title":"1992 - Now", "pic":"16.jpg", "parent":3}
+                ]
+                }
+        </textarea>
+        </footer>
     </div>
 </body>
