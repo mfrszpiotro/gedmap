@@ -1,0 +1,32 @@
+input[type="file"] {
+    display: none;
+}
+
+.fixed-center {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+.upload {
+    background-color: var(--cyan);
+    color: whitesmoke;
+    border-color: whitesmoke;
+    white-space: nowrap;
+    width: 300px;
+    text-align: center; 
+}
+
+#import-block {
+    border: 1px solid black;
+    width: 500px;
+    height: 600px;
+    background-color: var(--gray);
+    color: var(--white);
+    border: 4vh solid whitesmoke;
+    border-radius: 10vh;
+}

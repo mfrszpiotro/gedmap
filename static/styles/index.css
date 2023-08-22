@@ -1,0 +1,86 @@
+:root {
+    --skew-left: 30deg;
+    --skew-right: 30deg;
+    --unskew-left: -30deg;
+    --unskew-right: -30deg;
+}
+
+body {
+    overflow-x: hidden;
+}
+
+#welcome {
+    font-size: 30px;
+    text-align: center;
+    padding-top: 10%;
+    z-index: 1;
+}
+
+.btn {
+    font-size: 30px;
+    font-family: 'Josefin Sans';
+    color: whitesmoke;
+    border-color: whitesmoke;
+}
+
+#btn-left {
+    background-color: var(--darkbrown);
+    top: 70px;
+    right: 20px;
+    z-index: 1;
+    position: absolute;
+    -webkit-transform: rotate(var(--unskew-left));
+    -moz-transform: rotate(var(--unskew-left));
+    -o-transform: rotate(var(--unskew-left));
+    transform: rotate(var(--unskew-left));
+}
+
+#btn-right {
+    background-color: var(--darkbrown);
+    left: 20px;
+    bottom: 70px;
+    z-index: 1;
+    position: absolute;
+    -webkit-transform: rotate(var(--unskew-right));
+    -moz-transform: rotate(var(--unskew-right));
+    -o-transform: rotate(var(--unskew-right));
+    transform: rotate(var(--unskew-right));
+}
+
+#left-side {
+    -webkit-transform: rotate(var(--skew-left));
+    -moz-transform: rotate(var(--skew-left));
+    -o-transform: rotate(var(--skew-left));
+    transform: rotate(var(--skew-left));
+    right: 100%;
+    bottom: -100%;
+    background: var(--cyan);
+}
+
+#right-side {
+    -webkit-transform: rotate(var(--skew-right));
+    -moz-transform: rotate(var(--skew-right));
+    -o-transform: rotate(var(--skew-right));
+    transform: rotate(var(--skew-right));
+    left: 100%;
+    bottom: -30%;
+    background: var(--gray);
+}
+
+.slanted {
+    z-index: -1;
+    border: 4vh solid whitesmoke;
+    border-radius: 10vh;
+    width: 1000px;
+    height: 1500px;
+    position: absolute;
+    text-align: justify;
+    padding: 1rem;
+}
+
+.slanted .normal {
+    -webkit-transform: none;
+    -moz-transform: none;
+    -o-transform: none;
+    transform: none;
+}

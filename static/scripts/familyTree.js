@@ -205,9 +205,9 @@ function init() {
   document.getElementById('fullscreen').addEventListener('click', () => {
     document.getElementById("myDiagramDiv").requestFullscreen()
     setTimeout(() => {
-      myDiagram.commandHandler.zoomToFit()
-    }, 1000)
-
+      myDiagram.scale = 1;
+      myDiagram.commandHandler.scrollToPart(myDiagram.findNodeForKey(1));
+    }, 500)
   })
 
   document.getElementById('centerRoot').addEventListener('click', () => {

@@ -4,56 +4,36 @@
 </html>
 
 <head>
-    <meta charset="utf-8">
-    <title>GedMap - your geneaology trees</title>
+    <meta charset="utf-8" content="width=device-width, initial-scale=1.0">
+    <title>GedMap</title>
     <link rel="stylesheet" href="../styles/gedmap.css">
-    <link rel="stylesheet" href="../styles/gentree.css">
+    <link rel="stylesheet" href="../styles/index.css">
 </head>
 
 <body>
-    <div class="wrapper">
-        <header class="header">
-            <h1>GedMap - geneaology tree viewer</h1>
-        </header>
-        <script src="https://unpkg.com/gojs@2.3.10/release/go.js"></script>
-        <script type="text/javascript" src="../scripts/familyTree.js"></script>
-        <article class="content">
-            <div id="myDiagramDiv" class="gentree">
-
-            </div>
-            <button id="zoomToFit" class="btn zoom">Zoom out</button>
-            <button id="centerRoot" class="btn save">Center on root</button>
-            <button id="fullscreen" class="btn save">Fullscreen mode</button>
-
-
-        </article>
-
-        <div class="block-a">Import your file: </div>
-        <div class="block-b">Currently viewing: </div>
-        <div class="block-c">Block C</div>
-        <footer class="footer">My footer
-            <textarea id="mySavedModel" style="width:100%; height:270px;">
-                { "class": "go.TreeModel",
-                "nodeDataArray": [
-                {"key":1, "name":"Stella Payne Diaz", "title":"1992 - Now", "pic":"1.jpg", "comments":"test"},
-                {"key":2, "name":"Luke Warm", "title":"1992 - Now", "pic":"2.jpg", "parent":1},
-                {"key":3, "name":"Meg Meehan Hoffa", "title":"1992 - Now", "pic":"3.jpg", "parent":2},
-                {"key":4, "name":"Peggy Flaming", "title":"1992 - Now", "pic":"4.jpg", "parent":1},
-                {"key":5, "name":"Saul Wellingood", "title":"1992 - Now", "pic":"5.jpg", "parent":4},
-                {"key":6, "name":"Al Ligori", "title":"1992 - Now", "pic":"6.jpg", "parent":2},
-                {"key":7, "name":"Dot Stubadd", "title":"1992 - Now", "pic":"7.jpg", "parent":3},
-                {"key":8, "name":"Les Ismore", "title":"1992 - Nowr", "pic":"8.jpg", "parent":5},
-                {"key":9, "name":"April Lynn Parris", "title":"1992 - Now", "pic":"9.jpg", "parent":6},
-                {"key":10, "name":"Xavier Breath", "title":"1992 - Now", "pic":"10.jpg", "parent":4},
-                {"key":11, "name":"Anita Hammer", "title":"1992 - Now", "pic":"11.jpg", "parent":5},
-                {"key":12, "name":"Billy Aiken", "title":"1992 - Now", "pic":"12.jpg", "parent":10},
-                {"key":13, "name":"Stan Wellback", "title":"1992 - Now", "pic":"13.jpg", "parent":10},
-                {"key":14, "name":"Marge Innovera", "title":"1992 - Now", "pic":"14.jpg", "parent":10},
-                {"key":15, "name":"Evan Elpus", "title":"1992 - Now", "pic":"15.jpg", "parent":5},
-                {"key":16, "name":"Lotta B. Essen", "title":"1992 - Now", "pic":"16.jpg", "parent":3}
-                ]
-                }
-        </textarea>
-        </footer>
+    <nav>
+        <ul><span>
+            <li>GedMap</li>
+            <li>Upload</li>
+            <li>Viewer</li>
+            <li>Source code</li>
+            </span>
+        </ul>
+    </nav>
+    <div id="welcome">
+        <h1>Show your geneaology tree to the world.</h1>
+        <h1>Better.</h1>
+        <div>Start now with just one import of your .gedcom file and easily migrate from </div>
+        <div>MyHeritage, Ancestry and more.</div>
+    </div>
+    <div id="left-side" class='slanted'>
+        <button id="btn-left" class="btn" onclick="window.location.href='./viewer.html';">
+            Go to Viewer
+        </button>
+    </div>
+    <div id="right-side" class='slanted'>
+        <button id="btn-right" class="btn" onclick="window.location.href='./import.html';">
+            Go to Import
+        </button>
     </div>
 </body>
