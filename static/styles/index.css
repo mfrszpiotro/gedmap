@@ -1,8 +1,8 @@
 :root {
     --skew-left: 30deg;
-    --skew-right: 30deg;
+    --skew-right: 120deg;
     --unskew-left: -30deg;
-    --unskew-right: -30deg;
+    --unskew-right: -120deg;
 }
 
 body {
@@ -10,15 +10,18 @@ body {
 }
 
 #welcome {
-    font-size: 30px;
+    padding-top: 40px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 80%;
+    font-size: 40px;
     text-align: center;
-    padding-top: 10%;
-    z-index: 1;
+    z-index: -1;
 }
 
 .btn {
     font-size: 30px;
-    font-family: 'Josefin Sans';
+    font-family: var(--josefin);
     color: whitesmoke;
     border-color: whitesmoke;
 }
@@ -27,6 +30,7 @@ body {
     background-color: var(--darkbrown);
     top: 70px;
     right: 20px;
+    white-space: nowrap;
     z-index: 1;
     position: absolute;
     -webkit-transform: rotate(var(--unskew-left));
@@ -37,8 +41,9 @@ body {
 
 #btn-right {
     background-color: var(--darkbrown);
-    left: 20px;
-    bottom: 70px;
+    right: 20px;
+    bottom: 85px;
+    white-space: nowrap;
     z-index: 1;
     position: absolute;
     -webkit-transform: rotate(var(--unskew-right));
@@ -47,40 +52,82 @@ body {
     transform: rotate(var(--unskew-right));
 }
 
+
 #left-side {
+    top: 200px;
     -webkit-transform: rotate(var(--skew-left));
     -moz-transform: rotate(var(--skew-left));
     -o-transform: rotate(var(--skew-left));
     transform: rotate(var(--skew-left));
-    right: 100%;
-    bottom: -100%;
+    right: 107%;
     background: var(--cyan);
+    box-shadow: 10px 5px 5px var(--darkbrown);
+    transition-property: right;
+    position: fixed;
 }
 
 #right-side {
+    top: -200px;
     -webkit-transform: rotate(var(--skew-right));
     -moz-transform: rotate(var(--skew-right));
     -o-transform: rotate(var(--skew-right));
     transform: rotate(var(--skew-right));
-    left: 100%;
-    bottom: -30%;
+    left: 110%;
     background: var(--gray);
+    box-shadow: 10px -5px 5px var(--darkbrown);
+    transition-property: left;
+    position: fixed;
+}
+
+.easy-transition {
+    transition-duration: 0.5s;
+    transition-timing-function: ease-in-out;
+    transition-delay: 0.3s;
+}
+
+.lay-left {
+    position: absolute !important;
+}
+
+.lay-right {
+    position: relative !important;
 }
 
 .slanted {
-    z-index: -1;
-    border: 4vh solid whitesmoke;
-    border-radius: 10vh;
-    width: 1000px;
-    height: 1500px;
-    position: absolute;
+    z-index: 2 !important;
+    border: 40px solid whitesmoke;
+    border-radius: 100px;
+    width: 1666px;
+    height: 2500px;
     text-align: justify;
     padding: 1rem;
+    position: inherit;
 }
 
-.slanted .normal {
-    -webkit-transform: none;
-    -moz-transform: none;
-    -o-transform: none;
-    transform: none;
+@media screen and (max-width: 1600px) {
+    #welcome {
+        padding-top: 15px;
+        width: 80%;
+        font-size: 30px;
+    }
+
+    #left-side {
+        top: 400px;
+        width: 1000px;
+        right: 100%;
+    }
+
+    #right-side {
+        top: 20px;
+        width: 1500px;
+        left: 95%;
+    }
+
+    .slanted {
+        z-index: -1;
+        border: 40px solid whitesmoke;
+        border-radius: 100px;
+        height: 1500px;
+        padding: 1rem;
+    }
 }

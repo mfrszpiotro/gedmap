@@ -16,6 +16,9 @@
     --cyan: #2E8087;
     --white: #ffecbd;
     --gray: #7C9299;
+
+    --josefin: "Josefin Sans";
+    --open: "Open Sans"
 }
 
 *,
@@ -25,14 +28,70 @@
 }
 
 body {
+    padding-top: 180px;
     margin: 40px;
-    font-family: 'Open Sans';
+    font-family: var(--open);
     background-color: var(--white);
     color: var(--darkbrown);
 }
 
+nav {
+    background-color: var(--darkbrown);
+    border: 40px solid whitesmoke;
+    border-radius: 100px;
+    font-family: var(--open);
+    font-size: 20px;
+    position: fixed;
+    left: 50%;
+    transform: translateX(-50%);
+    top: -100px;
+    padding: 1rem;
+    padding-bottom: 0;
+    box-shadow: 0px 7px 5px var(--darkbrown);
+    width: 1000px;
+    z-index: 999;
+    transition: 0.5s;
+}
+
+nav ul {
+    list-style-type: none;
+    padding-top: 40px;
+    padding-left: 0;
+    padding-bottom: 0;
+    padding-right: 0;
+    margin: 0;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+}
+
+nav a {
+    color: whitesmoke;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+nav h2 a {
+    color: var(--cyan);
+    text-shadow: 
+    whitesmoke 1px 0px 1px, 
+    whitesmoke -1px 0px 1px,
+    whitesmoke 0px -1px 1px, 
+    whitesmoke 0px 1px 1px;
+}
+
+nav a:hover {
+    color: var(--orange)
+}
+
+h2{
+    font-family: var(--josefin);
+}
+
 h1{
-    font-family: 'Josefin Sans' !important;
+    font-family: var(--josefin);
     font-weight: bold;
     margin: 0 0 1em 0;
 }
@@ -50,4 +109,10 @@ h1{
     cursor: pointer;
     filter: brightness(120%);
     transition: filter 100ms linear;
+}
+
+@media screen and (max-width:1600px){
+    nav {
+        width: 102%;
+    }
 }
