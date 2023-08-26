@@ -14,18 +14,22 @@ function showSides() {
     if(scrollTop > (isSmall ? 400 : 600)) {
         rightSide.classList.add('lay-right');
         leftSide.classList.add('lay-left');
-        leftSide.style.right = (isSmall ? '100.8%' : '75%');
-        rightSide.style.left = (isSmall ? '100%' : '83%');
-        leftSide.style.top = (isSmall ? '-1000px' : '-2000px');
-        rightSide.style.top = (isSmall ? '-1400px' : '-4900px');;
+        rightSide.classList.add('easy-transition');
+        leftSide.classList.add('easy-transition');
+        leftSide.classList.remove('slide-from-left');
+        rightSide.classList.remove('slide-from-right');
     }
     else {
         leftSide.classList.remove('lay-left')
         rightSide.classList.remove('lay-right')
-        leftSide.style.right = (isSmall ? '100%' : '107%');
-        rightSide.style.left = (isSmall ? '95%' : '110%');
-        leftSide.style.top = (isSmall ? '400px' : '200px');
-        rightSide.style.top = (isSmall ? '20px' : '-200px');
+        leftSide.classList.remove('easy-transition');
+        rightSide.classList.remove('easy-transition');
+        leftSide.classList.remove('slide-from-left');
+        rightSide.classList.remove('slide-from-right');
+    }
+    if(scrollTop > (isSmall ? 450 : 650)) {
+        leftSide.classList.add('slide-from-left');
+        rightSide.classList.add('slide-from-right');
     }
 }
         // leftSide.style.right = (isSmall ? '40%' : '75%');
