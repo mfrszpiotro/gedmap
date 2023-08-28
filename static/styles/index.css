@@ -1,13 +1,6 @@
-:root {
-    --skew-left: 30deg;
-    --skew-right: 120deg;
-    --unskew-left: -30deg;
-    --unskew-right: -120deg;
-}
+:root {}
 
-body {
-    overflow-x: hidden;
-}
+body {}
 
 #welcome {
     padding-top: 40px;
@@ -16,7 +9,7 @@ body {
     width: 80%;
     font-size: 40px;
     text-align: center;
-    z-index: -1;
+    z-index: -1 !important;
 }
 
 .btn {
@@ -26,101 +19,45 @@ body {
     border-color: whitesmoke;
 }
 
-#btn-left {
-    background-color: var(--darkbrown);
-    top: 70px;
-    right: 20px;
-    white-space: nowrap;
-    z-index: 1;
-    position: absolute;
-    -webkit-transform: rotate(var(--unskew-left));
-    -moz-transform: rotate(var(--unskew-left));
-    -o-transform: rotate(var(--unskew-left));
-    transform: rotate(var(--unskew-left));
-}
-
-#btn-right {
-    background-color: var(--darkbrown);
-    right: 20px;
-    bottom: 85px;
-    white-space: nowrap;
-    z-index: 1;
-    position: absolute;
-    -webkit-transform: rotate(var(--unskew-right));
-    -moz-transform: rotate(var(--unskew-right));
-    -o-transform: rotate(var(--unskew-right));
-    transform: rotate(var(--unskew-right));
-}
-
-
-#left-side {
-    top: 200px;
-    -webkit-transform: rotate(var(--skew-left));
-    -moz-transform: rotate(var(--skew-left));
-    -o-transform: rotate(var(--skew-left));
-    transform: rotate(var(--skew-left));
-    right: 107%;
-    background: var(--cyan);
-    box-shadow: 10px 5px 5px var(--darkbrown);
-    transition-property: left;
-    position: fixed;
-}
-
-#right-side {
-    top: -200px;
-    -webkit-transform: rotate(var(--skew-right));
-    -moz-transform: rotate(var(--skew-right));
-    -o-transform: rotate(var(--skew-right));
-    transform: rotate(var(--skew-right));
-    left: 110%;
-    background: var(--gray);
-    box-shadow: 10px -5px 5px var(--darkbrown);
-    transition-property: left;
-    position: fixed;
-}
-
-.easy-transition {
-    transition-duration: 0.5s;
-    transition-timing-function: ease-in-out;
-    transition-delay: 0.3s;
-}
-
 #sides-container {
-    max-height: 800px;
     width: 100%;
 }
 
-.lay-left {
-    position: absolute !important;
-    left: -1844px !important; /* change to percent */
-    right: none;
-    top : 790px !important;
+#left-side {
+    float: left;
+    left: -10%;
+    top: 60%;
+    stroke: whitesmoke;
+    fill: var(--cyan);
 }
 
-.lay-right {
-    position: relative !important;
-    left: 112% !important;
-    top: -2280px !important;
+#right-side {
+    float: right;
+    top: 70%;
+    right: -10%;
+    stroke: whitesmoke;
+    fill: var(--gray);
 }
 
-.slide-from-left{
-    left: -60vw !important; /* change to percent */
+.sides-show {
+    position: absolute;
+    width: 60%;
 }
 
-.slide-from-right{
-    left: 80% !important;
-
+.sides-stay {
+    position: absolute;
+    width: 40%;
 }
 
-.slanted {
-    z-index: 2 !important;
-    border: 40px solid whitesmoke;
-    border-radius: 100px;
-    width: 1666px;
-    height: 2500px;
-    text-align: justify;
-    padding: 1rem;
-    position: inherit;
+.sides-fix {
+    position: fixed;
+    width: 40%;
+}
+
+.svg-triangle path {
+    stroke-width: 10;
+    stroke-linejoin: round;
+    stroke-linecap: round;
 }
 
 @media screen and (max-width: 1600px) {
@@ -130,50 +67,4 @@ body {
         font-size: 30px;
     }
 
-    #left-side {
-        top: 400px;
-        width: 1000px;
-        right: 100%;
-    }
-
-    #right-side {
-        top: 20px;
-        width: 1500px;
-        left: 95%;
-    }
-    
-    #sides-container {
-        max-height: 800px;
-        width: 100%;
-    }
-
-    .lay-left {
-        position: absolute !important;
-        left: -1000px !important; /* change to percent */
-        right: none;
-        top : 820px !important;
-    }
-    
-    .lay-right {
-        position: relative !important;
-        left: 98% !important;
-        top: -1450px !important;
-    }
-
-    .slide-from-left{
-        left: -60vw !important; /* change to percent */
-    }
-
-    .slide-from-right{
-        left: 68% !important;
-
-    }
-
-    .slanted {
-        z-index: -1;
-        border: 40px solid whitesmoke;
-        border-radius: 100px;
-        height: 1500px;
-        padding: 1rem;
-    }
 }
