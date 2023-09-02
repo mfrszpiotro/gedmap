@@ -12,11 +12,11 @@ const cssColors = {
 }
 
 const gradient = {
-  "first":"#AB5902",
-  "second":"#B54402",
-  "third":"#9E2A09",
-  "fourth":"#420501",
-  "fifth":"#570119"
+  "first":"#f5f5f5",
+  "second":"#f5f5f5",
+  "third":"#f5f5f5",
+  "fourth":"#f5f5f5",
+  "fifth":"#f5f5f5"
 }
 
 const levelColors = [
@@ -130,7 +130,7 @@ function init() {
       $(go.Panel, "Auto",
         { name: "BODY" },
         // define the node's outer shape
-        $(go.Shape, "Rectangle",
+        $(go.Shape, "RoundedRectangle",
           { name: "SHAPE", fill: cssColors.cyan, stroke: 'white', strokeWidth: 3.5, portId: "" }),
         $(go.Panel, "Horizontal",
           // picture can go here

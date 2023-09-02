@@ -4,25 +4,29 @@
 </html>
 
 <head>
-    <meta charset="utf-8" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GedMap</title>
     <link rel="stylesheet" href="../styles/gedmap.css">
     <link rel="stylesheet" href="../styles/import.css">
 </head>
 
 <body>
-    <nav>
+    <nav id="navbar">
         <ul>
             <li><h2><a href="./index.html">GedMap</a></h2></li>
             <li><a href="./import.html">Upload</a></li>
             <li><a href="./viewer.html">Viewer</a></li>
-            <li><a href="https://github.com/mfrszpiotro/gedmap">Source code</a></li>
         </ul>
     </nav>
-    <div id="import-block" class="fixed-center">
-        <label for="file-upload" class="upload btn  fixed-center">
-            Import .gedcom
-        </label>
-        <input id="file-upload" type="file" accept=".ged">
+    <script type="text/javascript" src="../scripts/hideNav.js"></script>
+    <div id="import-block">
+        <h1>Your GEDCOM goes here</h1>
+        <img id="file-image" src="../images/file.png">
+        <div id="btn-container">
+            <label id="upload-label" for="file-upload" class="btn">
+                Import file
+            </label>
+            <input id="file-upload" type="file" accept=".ged">
+        </div>
     </div>
 </body>

@@ -1,3 +1,5 @@
+const navbar = document.getElementById("navbar");
+
 function hideNav() {
     let scrollTop = window.scrollY || document.documentElement.scrollTop;
     if(scrollTop > 150) {
@@ -9,7 +11,6 @@ function hideNav() {
 }
 
 function init() {
-    const navbar = document.getElementById("navbar");
     window.addEventListener('scroll', hideNav);
 }
 

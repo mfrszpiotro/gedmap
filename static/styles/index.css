@@ -41,19 +41,15 @@ body{
 #left-side {
     float: left;
     left: -10px;
-    top: -20vh;
     position: relative;
-    stroke: whitesmoke;
-    fill: var(--cyan);
 }
 
 #right-side {
     float: right;
     right: -10px;
     top: 0vh;
+    top: -20vh;
     position: relative;
-    stroke: whitesmoke;
-    fill: var(--gray);
 }
 
 .sides-show {
@@ -82,76 +78,34 @@ body{
     height: 150vh;
 }
 
-@media (min-aspect-ratio: 16/8) {
-    .sides-show {
-        height: 200vh;
-    }
-    
-    .sides-hide {
-        height: 180vh;
-    }
-
-    .fill {
-        height: 200vh;
-    }
-}
-
-@media (max-aspect-ratio: 15/16) {
-    .sides-show {
-        width: 72vw;
-    }
-    
-    .sides-hide {
-        width: 62vw;
-    }
-
-    .fill {
-        height: 200vh;
-    }
-}
-
-@media (max-aspect-ratio: 15/16) {
-    .sides-show {
-        width: 72vw;
-    }
-    
-    .sides-hide {
-        width: 62vw;
-    }
-
-    .fill {
-        height: 200vh;
-    }
-}
-
-/* Small devices such as large phones (640px and up) */
-@media only screen and (min-width: 40em) {
+@media only screen and (max-width: 640px) {
     #welcome {
         padding-top: 15px;
         width: 80%;
-        font-size: 30px;
+        font-size: 20px;
     }
 }
 
-/* Medium devices such as tablets (768px and up) */
-@media only screen and (min-width: 48em) {
+@media only screen and (min-width: 640px) {
     #welcome {
         padding-top: 15px;
         width: 80%;
-        font-size: 30px;
+        font-size: 20px;
     }
 }
 
-/* Large devices such as laptops (1024px and up) */
-@media only screen and (min-width: 64em) {
+@media only screen and (min-width: 768px) {
     #welcome {
         padding-top: 15px;
         width: 80%;
-        font-size: 30px;
+        font-size: 40px;
     }
 }
 
-/* Largest devices such as desktops (1280px and up) */
-@media only screen and (min-width: 80em) {
+@media only screen and (min-width: 1024px) {
+
+}
+
+@media only screen and (min-width: 1280px) {
 
 }
