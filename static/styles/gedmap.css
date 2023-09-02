@@ -29,7 +29,9 @@
 
 body {
     padding-top: 180px;
-    margin: 40px;
+    padding-left: 0;
+    padding-right: 0;
+    margin: 0;
     font-family: var(--open);
     background-color: var(--white);
     color: var(--darkbrown);
@@ -48,7 +50,6 @@ nav {
     padding: 1rem;
     padding-bottom: 0;
     box-shadow: 0px 7px 5px var(--darkbrown);
-    width: 1000px;
     z-index: 999;
     transition: 0.5s;
 }
@@ -86,6 +87,54 @@ nav a:hover {
     color: var(--orange)
 }
 
+footer {
+    background-color: var(--darkbrown);
+    border-top: 40px solid whitesmoke;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: var(--open);
+    font-size: 20px;
+    position: relative;
+    bottom: 0;
+    padding: 1rem;
+    padding-bottom: 0;
+    z-index: 999;
+    transition: 0.5s;
+}
+
+footer ul {
+    list-style-type: none;
+    padding-top: 40px;
+    padding-left: 0;
+    padding-bottom: 0;
+    padding-right: 0;
+    margin: 0;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+}
+
+footer a {
+    color: whitesmoke;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+footer h2 a {
+    color: var(--cyan);
+    text-shadow: 
+    whitesmoke 1px 0px 1px, 
+    whitesmoke -1px 0px 1px,
+    whitesmoke 0px -1px 1px, 
+    whitesmoke 0px 1px 1px;
+}
+
+footer a:hover {
+    color: var(--orange)
+}
+
 h2{
     font-family: var(--josefin);
 }
@@ -111,8 +160,30 @@ h1{
     transition: filter 100ms linear;
 }
 
-@media screen and (max-width:1600px){
+/* Small devices such as large phones (640px and up) */
+@media only screen and (min-width: 40em) {
     nav {
         width: 102%;
+    }
+}
+
+/* Medium devices such as tablets (768px and up) */
+@media only screen and (min-width: 48em) {
+    nav {
+        width: 102%;
+    }
+}
+
+/* Large devices such as laptops (1024px and up) */
+@media only screen and (min-width: 64em) {
+    nav {
+        width: 102%;
+    }
+}
+
+/* Largest devices such as desktops (1280px and up) */
+@media only screen and (min-width: 80em) {
+    nav {
+        width: 1000px;
     }
 }

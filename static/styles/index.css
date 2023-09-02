@@ -1,6 +1,6 @@
-:root {}
-
-body {}
+body{
+    overflow-x: hidden;
+}
 
 #welcome {
     padding-top: 40px;
@@ -19,39 +19,57 @@ body {}
     border-color: whitesmoke;
 }
 
+#left-container {
+    z-index: 20;
+    width: 100%;
+    position: absolute;
+}
+
+#right-container {
+    z-index: 30;
+    width: 100%;
+    position: absolute;
+}
+
 #sides-container {
     width: 100%;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
 }
 
 #left-side {
     float: left;
-    left: -10%;
-    top: 60%;
+    left: -10px;
+    top: -20vh;
+    position: relative;
     stroke: whitesmoke;
     fill: var(--cyan);
 }
 
 #right-side {
     float: right;
-    top: 70%;
-    right: -10%;
+    right: -10px;
+    top: 0vh;
+    position: relative;
     stroke: whitesmoke;
     fill: var(--gray);
 }
 
 .sides-show {
-    position: absolute;
-    width: 60%;
+    height: 145vh;
+    width: 52vw;
 }
 
-.sides-stay {
-    position: absolute;
-    width: 40%;
+.sides-hide {
+    height: 125vh;
+    width: 42vw;
 }
 
-.sides-fix {
-    position: fixed;
-    width: 40%;
+.svg-triangle {
+    transition-property: height, width;
+    transition-duration: 0.5s;
+    transition-timing-function: ease;
 }
 
 .svg-triangle path {
@@ -60,11 +78,80 @@ body {}
     stroke-linecap: round;
 }
 
-@media screen and (max-width: 1600px) {
+.fill {
+    height: 150vh;
+}
+
+@media (min-aspect-ratio: 16/8) {
+    .sides-show {
+        height: 200vh;
+    }
+    
+    .sides-hide {
+        height: 180vh;
+    }
+
+    .fill {
+        height: 200vh;
+    }
+}
+
+@media (max-aspect-ratio: 15/16) {
+    .sides-show {
+        width: 72vw;
+    }
+    
+    .sides-hide {
+        width: 62vw;
+    }
+
+    .fill {
+        height: 200vh;
+    }
+}
+
+@media (max-aspect-ratio: 15/16) {
+    .sides-show {
+        width: 72vw;
+    }
+    
+    .sides-hide {
+        width: 62vw;
+    }
+
+    .fill {
+        height: 200vh;
+    }
+}
+
+/* Small devices such as large phones (640px and up) */
+@media only screen and (min-width: 40em) {
     #welcome {
         padding-top: 15px;
         width: 80%;
         font-size: 30px;
     }
+}
+
+/* Medium devices such as tablets (768px and up) */
+@media only screen and (min-width: 48em) {
+    #welcome {
+        padding-top: 15px;
+        width: 80%;
+        font-size: 30px;
+    }
+}
+
+/* Large devices such as laptops (1024px and up) */
+@media only screen and (min-width: 64em) {
+    #welcome {
+        padding-top: 15px;
+        width: 80%;
+        font-size: 30px;
+    }
+}
+
+/* Largest devices such as desktops (1280px and up) */
+@media only screen and (min-width: 80em) {
 
 }
