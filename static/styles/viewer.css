@@ -1,10 +1,15 @@
+#mySavedModel {
+    visibility: hidden;
+    height: 0px;
+}
+
 .gentree {
     background-color: var(--white);
-    border: 0.3rem solid var(--white); 
+    border: 15px solid whitesmoke; 
     border-radius: 5px;
     width: 100%; 
     min-height: 300px;
-    height: 95%; 
+    height: 100%; 
     position: relative; 
     -webkit-tap-highlight-color: rgba(255, 255, 255, 0); 
     cursor: auto;
@@ -12,7 +17,8 @@
 }
 
 .wrapper {
-    margin: 0 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
     display: grid;
     grid-gap: 10px;
 }
@@ -23,6 +29,10 @@
 
 .zoom {
     background-color: var(--orange);
+}
+
+.content {
+    height: 90vh;
 }
 
 @media screen and (min-width: 600px) {
@@ -42,42 +52,37 @@
 
     .wrapper {
         margin: 0 auto;
-        grid-template-columns: 1fr 3fr;
+        grid-template-columns: 1fr 5fr;
         grid-auto-rows: minmax(150px, auto);
     }
 
-    .header,
-    .footer {
-        grid-column: 1 / -1;
-        /* needed for the floated layout */
-        clear: both;
-    }
 
     .block-a {
         grid-column: 1;
-        grid-row: 2;
+        grid-row: 1;
     }
 
     .block-b {
         grid-column: 1;
-        grid-row: 4;
+        grid-row: 2/5;
     }
 
     .block-c {
         grid-column: 1;
-        grid-row: 6;
+        grid-row: 5;
     }
 
     .content {
         grid-column: 2;
-        grid-row: 2 / 7;
+        grid-row: 1 / 6;
     }
 
 }
 
 .wrapper>* {
     background-color: var(--darkbrown);
-    color: var(--white);
+    color: whitesmoke;
+    font-family: var(--josefin);
     border-radius: 5px;
     padding: 20px;
     font-size: 150%;

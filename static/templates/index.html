@@ -5,7 +5,7 @@
 
 <head>
     <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GedMap</title>
+    <title>GedMap - geneaology trees</title>
     <link rel="stylesheet" href="../styles/gedmap.css">
     <link rel="stylesheet" href="../styles/index.css">
 </head>
@@ -13,72 +13,42 @@
 <body>
     <nav id="navbar">
         <ul>
-            <li>
-                <h2><a href="./index.html">GedMap</a></h2>
-            </li>
+            <li><h2><a href="./index.html">GedMap</a></h2></li>
             <li><a href="./import.html">Upload</a></li>
             <li><a href="./viewer.html">Viewer</a></li>
         </ul>
     </nav>
     <script type="text/javascript" src="../scripts/hideNav.js"></script>
-    <div id="welcome">
-        <h1>Show your geneaology tree to the world.</h1>
-        <h1>Better.</h1>
-        <div>Start now with just one import of your .gedcom file and easily migrate from </div>
-        <div>MyHeritage, Ancestry and more.</div>
-    </div>
-    <div id="left-container">
-        <div id="sides-container">
+    <section>
+        <div id="welcome">
+            <h1>Show your geneaology tree to the world.</h1>
+            <h1>Better.</h1>
+            <div>Start now with just one import of your .gedcom file and easily migrate from </div>
+            <div>MyHeritage, Ancestry and more.</div>
+        </div>
+    </section>
+    <section id="sides-section">
+        <div id="left-container">
+            <div id="svg-container">
+                <img id="left-side" class="svg-triangle sides-hide" src="../images/left-triangle.svg">
+            </div>
+        </div>
+        <div id="right-container">
+            <div id="svg-container">
+                <img id="right-side" class="svg-triangle sides-hide" src="../images/right-triangle.svg">
+            </div>
+        </div>
+    </section>
+    <section id="sides-section-mobile">
+        <div class="card">
             <img id="left-side" class="svg-triangle sides-hide" src="../images/left-triangle.svg">
         </div>
-    </div>
-    <div id="right-container">
-        <div id="sides-container">
+        <div class="card">
             <img id="right-side" class="svg-triangle sides-hide" src="../images/right-triangle.svg">
         </div>
-    </div>
-    <div id="welcome">.</div>
-    <div id="welcome">.</div>
-    <div id="welcome">.</div>
-    <div id="welcome">.</div>
-    <div id="welcome">.</div>
-    <div id="welcome">.</div>
-    <div id="welcome">.</div>
-    <div id="welcome">.</div>
-    <div id="welcome">.</div>
-    <div id="welcome">.</div>
-    <div id="welcome">.</div>
-    <div id="welcome">.</div>
-    <div id="welcome">.</div>
-    <div id="welcome">.</div>
-    <div id="welcome">.</div>
-    <div id="welcome">.</div>
-    <div id="welcome">.</div>
-    <div id="welcome">.</div>
-    <div id="welcome">.</div>
-    <div id="welcome">.</div>
-    <div id="welcome">.</div>
-    <div id="welcome">.</div>
-    <div id="welcome">.</div>
-    <div id="welcome">.</div>
-    <div id="welcome">.</div>
-    <div id="welcome">.</div>
-    <div id="welcome">.</div>
-    <div id="welcome">.</div>
-    <div id="welcome">.</div>
-    <div id="welcome">.</div>
-    <div id="welcome">.</div>
-    <div id="welcome">.</div>
-    <div id="welcome">.</div>
-    <div id="welcome">.</div>
-    <div id="welcome">.</div>
-    <div id="welcome">.</div>
-    <div id="welcome">.</div>
-    <div id="welcome">.</div>
-    <div id="welcome">.</div>
-    <div id="welcome">.</div>
-    <div id="welcome">.</div>
-
+    </section>
+    <!-- 3 sections !!! e.g. 1. normal layout 2. rearrange for section #2 right container 3. do the same for section #3  -->
+    <div id="fill"></div>
     <footer>
         <ul>
             <li>

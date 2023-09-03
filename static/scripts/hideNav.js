@@ -2,7 +2,7 @@ const navbar = document.getElementById("navbar");
 
 function hideNav() {
     let scrollTop = window.scrollY || document.documentElement.scrollTop;
-    if(scrollTop > 150) {
+    if(scrollTop > 50) {
         navbar.style.top = '-400px';
     }
     else {
