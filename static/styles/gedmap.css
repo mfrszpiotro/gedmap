@@ -90,6 +90,17 @@ nav a:hover {
     color: var(--orange)
 }
 
+nav li:first-child {
+    flex-basis: auto;
+    text-align: left;
+    margin-right: auto;
+    margin-left: 20px;
+}
+
+nav li:last-child {
+    margin-right: 20px;
+}
+
 footer {
     background-color: var(--darkbrown);
     border-top: 40px solid whitesmoke;
