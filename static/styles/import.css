@@ -52,8 +52,8 @@ h1{
     margin-bottom: 70px;
 }
 
-@media only screen and (min-width: 1px) {
-
+#fill {
+    height: 20vh;
 }
 
 @media only screen and (min-width: 640px) {
