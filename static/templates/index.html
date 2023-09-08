@@ -12,12 +12,19 @@
 
 <body>
     <nav id="navbar">
-        <ul>
-            <li><h2><a href="./index.html">GedMap</a></h2></li>
+        <ol id="mobile-list">
             <li><a href="./import.html">Upload</a></li>
             <li><a href="./viewer.html">Viewer</a></li>
             <li><a>Log in</a></li>
-            <li><a>&#x2630</a></li>
+        </ol>
+        <ul>
+            <li>
+                <h2><a href="./index.html">GedMap</a></h2>
+            </li>
+            <li><a href="./import.html">Upload</a></li>
+            <li><a href="./viewer.html">Viewer</a></li>
+            <li><a>Log in</a></li>
+            <li id="trigger-mobile-nav"><a id="hamburg-icon">&#x2630</a></li>
         </ul>
     </nav>
     <script type="text/javascript" src="../scripts/hideNav.js"></script>
@@ -49,7 +56,6 @@
             <img id="right-side" class="svg-triangle sides-hide" src="../images/right-triangle.svg">
         </div>
     </section>
-    <!-- 3 sections !!! e.g. 1. normal layout 2. rearrange for section #2 right container 3. do the same for section #3  -->
     <div id="fill"></div>
     <footer>
         <ul>
@@ -59,6 +65,6 @@
             <li><a target=”_blank href="https://github.com/mfrszpiotro/gedmap">Source code</a></li>
         </ul>
         <h3>© 2023 Marcel Piotrowski. All rights reserved.</h3>
-    </footer> 
+    </footer>
     <script type="text/javascript" src="../scripts/indexSides.js"></script>
 </body>

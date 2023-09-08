@@ -39,23 +39,46 @@ body {
     color: var(--darkbrown);
 }
 
+nav ol li {
+    padding: 10px;
+}
+
+nav ol {
+    list-style-type: none;
+    padding-top: 100px;
+    padding-left: 0;
+    padding-bottom: 0;
+    padding-right: 0;
+    margin: 0;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+}
+
+nav.mobile-show {
+    top: -100px;
+}
+
+nav.all-hide {
+    top: -500px;
+}
+
 nav {
     width: 102%;
-}
-nav {
-    background-color: var(--darkbrown);
-    border: 20px solid whitesmoke;
     border-radius: 100px;
-    font-family: var(--open);
     font-size: 20px;
     position: fixed;
     left: 50%;
     transform: translateX(-50%);
-    top: -80px;
+    top: -340px;
     padding: 1rem;
     padding-bottom: 0;
-    box-shadow: 0px 7px 5px var(--darkbrown);
     z-index: 999;
+
+    font-family: var(--open);
+    box-shadow: 0px 7px 5px var(--darkbrown);
+    background-color: var(--darkbrown);
+    border: 20px solid whitesmoke;
     transition: 0.5s;
 }
 
@@ -82,22 +105,41 @@ nav a {
 nav h2 a {
     font-size: 30px !important;
     color: var(--cyan);
-    text-shadow: 
-    whitesmoke 1px 0px 1px, 
-    whitesmoke -1px 0px 1px,
-    whitesmoke 0px -1px 1px, 
-    whitesmoke 0px 1px 1px;
+    text-shadow:
+        whitesmoke 1px 0px 1px,
+        whitesmoke -1px 0px 1px,
+        whitesmoke 0px -1px 1px,
+        whitesmoke 0px 1px 1px;
 }
 
-nav a:hover {
-    color: var(--orange)
+nav a {
+    display: inline-block;
+    position: relative;
 }
 
-nav li {
+nav a::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: whitesmoke;
+    transform-origin: bottom right;
+    transition: transform 0.25s ease-out;
+}
+
+nav a:hover::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+}
+
+nav ul li {
     display: none;
 }
 
-nav li:first-child {
+nav ul li:first-child {
     display: block !important;
     flex-basis: auto;
     text-align: left;
@@ -105,30 +147,32 @@ nav li:first-child {
     margin-left: 20px;
 }
 
-nav li:nth-last-child(2) {
+nav ul li:nth-last-child(2) {
     margin-right: 0;
 }
 
-nav li:last-child {
+nav ul li:last-child {
     margin-right: 30px;
     font-size: 30px;
     display: block !important;
+    background-color: none;
 }
 
 footer {
-    background-color: var(--darkbrown);
-    border-top: 40px solid whitesmoke;
     left: 50%;
     transform: translateX(-50%);
-    font-family: var(--open);
     font-size: 20px;
     position: relative;
+    text-align: center;
     bottom: 0;
     padding: 1rem;
     padding-bottom: 0;
+
+    font-family: var(--open);
+    background-color: var(--darkbrown);
+    border-top: 40px solid whitesmoke;
     z-index: 999;
     transition: 0.5s;
-    text-align: center;
 }
 
 footer ul {
@@ -162,15 +206,11 @@ footer a {
 footer h2 a {
     font-size: 40px !important;
     color: var(--cyan);
-    text-shadow: 
-    whitesmoke 1px 0px 1px, 
-    whitesmoke -1px 0px 1px,
-    whitesmoke 0px -1px 1px, 
-    whitesmoke 0px 1px 1px;
-}
-
-footer a:hover {
-    color: var(--orange);
+    text-shadow:
+        whitesmoke 1px 0px 1px,
+        whitesmoke -1px 0px 1px,
+        whitesmoke 0px -1px 1px,
+        whitesmoke 0px 1px 1px;
 }
 
 h3 {
@@ -181,11 +221,11 @@ h3 {
     padding: 5px;
 }
 
-h2{
+h2 {
     font-family: var(--josefin);
 }
 
-h1{
+h1 {
     font-family: var(--josefin);
     font-weight: bold;
     margin: 0 0 1em 0;
@@ -207,6 +247,10 @@ h1{
 }
 
 @media only screen and (min-width: 640px) {
+    nav.all-hide {
+        top: -500px;
+    }
+
     nav {
         width: 102%;
         background-color: var(--darkbrown);
@@ -217,14 +261,14 @@ h1{
         position: fixed;
         left: 50%;
         transform: translateX(-50%);
-        top: -100px;
+        top: -350px;
         padding: 1rem;
         padding-bottom: 0;
         box-shadow: 0px 7px 5px var(--darkbrown);
         z-index: 999;
         transition: 0.5s;
     }
-    
+
     nav ul {
         list-style-type: none;
         padding-top: 40px;
@@ -238,57 +282,52 @@ h1{
         align-items: center;
         gap: 2rem;
     }
-    
+
     nav a {
         color: whitesmoke;
         text-decoration: none;
         font-weight: bold;
     }
-    
+
     nav h2 a {
         font-size: 40px !important;
         color: var(--cyan);
-        text-shadow: 
-        whitesmoke 1px 0px 1px, 
-        whitesmoke -1px 0px 1px,
-        whitesmoke 0px -1px 1px, 
-        whitesmoke 0px 1px 1px;
-    }
-    
-    nav a:hover {
-        color: var(--orange)
+        text-shadow:
+            whitesmoke 1px 0px 1px,
+            whitesmoke -1px 0px 1px,
+            whitesmoke 0px -1px 1px,
+            whitesmoke 0px 1px 1px;
     }
 
-    nav li {
-        display:block;
+    nav ul li {
+        display: block;
     }
-    
-    nav li:first-child {
+
+    nav ul li:first-child {
         flex-basis: auto;
         text-align: left;
         margin-right: auto;
         margin-left: 20px;
     }
 
-    nav li:nth-last-child(2) {
+    nav ul li:nth-last-child(2) {
         margin-right: 20px;
     }
-    
-    nav li:last-child {
+
+    nav ul li:last-child {
         margin-right: 0;
         display: none !important;
     }
 }
 
-@media only screen and (min-width: 768px) {
-
-}
+@media only screen and (min-width: 768px) {}
 
 @media only screen and (min-width: 1024px) {
     nav {
         width: 1000px;
     }
 }
+
 @media only screen and (min-width: 1280px) {
     nav {
         width: 1000px;
