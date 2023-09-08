@@ -22,11 +22,11 @@
 <div class="messages pt-4">
     {% with messages = get_flashed_messages(category_filter=["success"]) %}
     {% if messages %}
-    <ul class=flashes>
+    <ul class="flashes">
         {% for message in messages %}
         <div class="success">
-            <span id="tickbtn" class="closebtn-success">&#x2713</span>
-            <script type="text/javascript" src="{{ url_for('static', filename='scripts/onHide.js') }}"></script>
+            <span id="tickbtn{{ loop.index }}" class="closebtn-success">&#x2713</span>
+            <script type="text/javascript" src="{{ url_for('static', filename='scripts/onHide.js') }}" name="{{ loop.index }}" filter="tick"></script>
             {{ message }}
         </div>
     {% endfor %}
@@ -38,11 +38,11 @@
 <div class="errors p-4">
     {% with errors = get_flashed_messages(category_filter=["error"]) %}
     {% if errors %}
-    <ul class=flashes>
+    <ul class="flashes">
         {% for error in errors %}
             <div class="error">
-                <span id="closebtn" class="closebtn-error">&#x2717</span>
-                <script type="text/javascript" src="{{ url_for('static', filename='scripts/onHide.js') }}"></script>
+                <span id="closebtn{{ loop.index }}" class="closebtn-error">&#x2717</span>
+                <script type="text/javascript" src="{{ url_for('static', filename='scripts/onHide.js') }}" name="{{ loop.index }}" filter="close"></script>
                 <span> {{ error }} </span>
             </div>
         {% endfor %}
