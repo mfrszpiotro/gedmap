@@ -1,0 +1,34 @@
+
+{% extends 'appbase.html' %}
+
+{% block content %}
+    <section>
+        <div id="welcome">
+            <h1>Show your geneaology tree to the world.</h1>
+            <h1>Better.</h1>
+            <div>Start now with just one import of your .gedcom file and easily migrate from </div>
+            <div>MyHeritage, Ancestry and more.</div>
+        </div>
+    </section>
+    <section id="sides-section">
+        <div id="left-container">
+            <div id="svg-container">
+                <img id="left-side" class="svg-triangle sides-hide" src="{{ url_for('static', filename='images/left-triangle.svg') }}">
+            </div>
+        </div>
+        <div id="right-container">
+            <div id="svg-container">
+                <img id="right-side" class="svg-triangle sides-hide" src="{{ url_for('static', filename='images/right-triangle.svg') }}">
+            </div>
+        </div>
+    </section>
+    <section id="sides-section-mobile">
+        <div class="card">
+            <img id="left-side" class="svg-triangle sides-hide" src="{{ url_for('static', filename='images/left-triangle.svg') }}">
+        </div>
+        <div class="card">
+            <img id="right-side" class="svg-triangle sides-hide" src="{{ url_for('static', filename='images/right-triangle.svg') }}">
+        </div>
+    </section>
+    <div id="fill"></div>
+{% endblock %}

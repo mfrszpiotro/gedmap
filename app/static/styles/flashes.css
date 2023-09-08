@@ -1,0 +1,87 @@
+.messages {
+  z-index: 998;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+}
+
+.errors {
+  z-index: 999;
+  position: fixed;
+  right: 0;
+  bottom: 0;
+}
+
+.success {
+  padding: 20px;
+  color: white;
+  margin-bottom: 15px;
+  background-color: #292929;
+  border: 3px solid white;
+  max-width: 350px;
+  animation-duration: 1s;
+  animation-name: fromleft;
+}
+
+.error {
+  padding: 20px;
+  color: white;
+  margin-bottom: 15px;
+  background-color: #292929;
+  border: 3px solid white;
+  max-width: 350px;
+  animation-duration: 1s;
+  animation-name: fromright;
+}
+
+.closebtn-success {
+  margin-left: 15px;
+  color: white;
+  font-weight: bold;
+  float: right;
+  font-size: 22px;
+  line-height: 20px;
+  cursor: pointer;
+}
+
+.closebtn-success:hover {
+  color: #43FA6E;
+}
+
+.closebtn-error {
+  margin-right: 15px;
+  color: white;
+  font-weight: bold;
+  float: left;
+  font-size: 22px;
+  line-height: 20px;
+  cursor: pointer;
+}
+
+.closebtn-error:hover {
+  color: red;
+}
+
+@keyframes fromright {
+  from {
+    transform: translateX(600px);
+    width: 300%;
+  }
+
+  to {
+    transform: translateX(0px);
+    width: 100%;
+  }
+}
+
+@keyframes fromleft {
+  from {
+    transform: translateX(-600px);
+    width: 300%;
+  }
+
+  to {
+    transform: translateX(0px);
+    width: 100%;
+  }
+}

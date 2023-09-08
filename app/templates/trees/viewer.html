@@ -1,36 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends 'appbase.html' %}
 
-</html>
-
-<head>
-    <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Viewer - GedMap</title>
-    <link rel="stylesheet" href="../styles/gedmap.css">
-    <link rel="stylesheet" href="../styles/viewer.css">
-</head>
-
-<body>
-    <nav id="navbar">
-        <ol id="mobile-list">
-            <li><a href="./import.html">Upload</a></li>
-            <li><a href="./viewer.html">Viewer</a></li>
-            <li><a>Log in</a></li>
-        </ol>
-        <ul>
-            <li>
-                <h2><a href="./index.html">GedMap</a></h2>
-            </li>
-            <li><a href="./import.html">Upload</a></li>
-            <li><a href="./viewer.html">Viewer</a></li>
-            <li><a>Log in</a></li>
-            <li id="trigger-mobile-nav"><a id="hamburg-icon">&#x2630</a></li>
-        </ul>
-    </nav>
-    <script type="text/javascript" src="../scripts/hideNav.js"></script>
+{% block content %}
     <div class="wrapper">
-        <script src="https://unpkg.com/gojs@2.3.10/release/go.js"></script>
-        <script type="text/javascript" src="../scripts/familyTree.js"></script>
         <article class="content">
             <div id="myDiagramDiv" class="gentree">
 
@@ -69,13 +40,6 @@
         ]
         }
     </textarea>
-    <footer>
-        <ul>
-            <li>
-                <h2><a href="./index.html">GedMap</a></h2>
-            </li>
-            <li><a target=”_blank href="https://github.com/mfrszpiotro/gedmap">Source code</a></li>
-        </ul>
-        <h3>© 2023 Marcel Piotrowski. All rights reserved.</h3>
-    </footer> 
-</body>
+    <script src="https://unpkg.com/gojs@2.3.10/release/go.js"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='scripts/familyTree.js') }}"></script>
+{% endblock %}

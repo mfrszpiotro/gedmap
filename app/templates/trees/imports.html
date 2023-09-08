@@ -1,0 +1,15 @@
+{% extends 'appbase.html' %}
+
+{% block content %}
+    <div id="import-block">
+        <h1>Your GEDCOM goes here</h1>
+        <img id="file-image" src="{{ url_for('static', filename='images/file.png') }}">
+        <div id="btn-container">
+            <label id="upload-label" for="file-upload" class="btn">
+                Import file
+            </label>
+            <input id="file-upload" type="file" accept=".ged">
+        </div>
+    </div>
+    <div id="import-fill"></div>
+{% endblock %}

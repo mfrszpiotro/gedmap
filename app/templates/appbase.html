@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+
+{% block navbar %}
+
+<nav id="navbar">
+    <ol id="mobile-list">
+        <li><a href="{{ url_for('trees.imports') }}">Upload</a></li>
+        <li><a href="{{ url_for('trees.viewer') }}">Viewer</a></li>
+        <li><a>Log in</a></li>
+    </ol>
+    <ul>
+        <li>
+            <h2><a href="{{ url_for('main.index') }}">GedMap</a></h2>
+        </li>
+        <li><a href="{{ url_for('trees.imports') }}">Upload</a></li>
+        <li><a href="{{ url_for('trees.viewer') }}">Viewer</a></li>
+        <li><a>Log in</a></li>
+        <li id="trigger-mobile-nav"><a id="hamburg-icon">&#x2630</a></li>
+    </ul>
+</nav>
+
+<div class="messages pt-4">
+    {% with messages = get_flashed_messages(category_filter=["success"]) %}
+    {% if messages %}
+    <ul class=flashes>
+        {% for message in messages %}
+        <div class="success">
+            <span id="tickbtn" class="closebtn-success">&#x2713</span>
+            <script type="text/javascript" src="{{ url_for('static', filename='scripts/onHide.js') }}"></script>
+            {{ message }}
+        </div>
+    {% endfor %}
+    </ul>
+    {% endif %}
+    {% endwith %}
+</div>
+
+<div class="errors p-4">
+    {% with errors = get_flashed_messages(category_filter=["error"]) %}
+    {% if errors %}
+    <ul class=flashes>
+        {% for error in errors %}
+            <div class="error">
+                <span id="closebtn" class="closebtn-error">&#x2717</span>
+                <script type="text/javascript" src="{{ url_for('static', filename='scripts/onHide.js') }}"></script>
+                <span> {{ error }} </span>
+            </div>
+        {% endfor %}
+    </ul>
+    {% endif %}
+    {% endwith %}
+</div>
+{% endblock %}
+
+{% block footer %}
+<footer>
+    <ul>
+        <li>
+            <h2><a href="./index.html">GedMap</a></h2>
+        </li>
+        <li><a target=”_blank href="https://github.com/mfrszpiotro/gedmap">Source code</a></li>
+    </ul>
+    <h3>© 2023 Marcel Piotrowski. All rights reserved.</h3>
+</footer>
+{% endblock %}
