@@ -1,6 +1,4 @@
 from flask import Flask
-import os
-#from app.extensions import db, ck, bs
 
 class Config:
     SECRET_KEY = "test" # os.environ.get("FLASK_SECRET_KEY")

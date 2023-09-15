@@ -197,7 +197,6 @@ function init() {
   // read in the JSON-format data from the "mySavedModel" element
   load();
 
-  // Setup zoom to fit button
   //document.getElementById('SaveButton').addEventListener('click', () => save());
 
   document.getElementById('zoomToFit').addEventListener('click', () => myDiagram.commandHandler.zoomToFit());
