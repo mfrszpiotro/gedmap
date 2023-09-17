@@ -12,7 +12,7 @@ from gedcom.tags import (
 basedir = os.path.abspath(os.path.dirname(__file__))
 ALLOWED_EXTENSIONS = {"ged"}
 UPLOAD_FOLDER = os.path.join(basedir, "gedcoms")
-
+EXAMPLE_FILE = "kennedy_family_example.ged"
 
 class InvalidParser(Exception):
     pass
@@ -73,20 +73,24 @@ def get_view_model(filename):
     for element in elements:
         if isinstance(element, IndividualElement):
             node = {}
+            gender = element.get_gender()
             node["key"] = _get_unique_id(element)
             (first, last) = element.get_name()
             node["n"] = first + " " + last
-            node["s"] = element.get_gender()
+            node["fn"] = first
+            node["ln"] = last
+            node["s"] = gender
+            node["gs"] = "\u2640" if gender == "F" else "\u2642"
             parents = parser.get_parents(element)
             node["m"] = _get_id_mother(parents)
             node["f"] = _get_id_father(parents)
             fam_list = parser.get_families(element, GEDCOM_TAG_FAMILY_SPOUSE)
             fam = fam_list.pop() if fam_list else None
             node["ux"] = (
-                _get_id_last_wife(parser, fam) if fam and node["s"] == "M" else -1
+                _get_id_last_wife(parser, fam) if fam and gender == "M" else -1
             )
             node["vir"] = (
-                _get_id_last_husband(parser, fam) if fam and node["s"] == "F" else -1
+                _get_id_last_husband(parser, fam) if fam and gender == "F" else -1
             )
             nodes.append(node)
     return json.dumps(nodes, indent=4)

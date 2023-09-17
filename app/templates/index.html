@@ -6,8 +6,14 @@
         <div id="welcome">
             <h1>Show your geneaology tree to the world.</h1>
             <h1>Better.</h1>
-            <div>Start now with just one import of your .gedcom file and easily migrate from </div>
+            <div>Start now with just one import of your GEDCOM file and easily migrate from </div>
             <div>MyHeritage, Ancestry and more.</div>
+            <h1></h1>
+            <form id="example-form" method="post">
+                <button name="example" value=1 type="submit" formmethod="post" class="btn btn-example"><h2 class="btn-example">Show example</h2></button>
+                <button type="none" class="btn btn-start"><h2 class="btn-start">Get started</h2></button>
+
+            </form>
         </div>
     </section>
     <section id="sides-section">
@@ -31,4 +37,5 @@
         </div>
     </section>
     <div id="fill"></div>
+    <script type="text/javascript" src="{{ url_for('static', filename='scripts/indexSides.js') }}"></script>
 {% endblock %}

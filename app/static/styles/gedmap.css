@@ -234,12 +234,24 @@ h1 {
 }
 
 .btn {
-    color: var(--white);
+    color: whitesmoke;
     padding: 0.5rem;
+    padding-left: 20px;
+    padding-right: 20px;
     border-radius: 5px;
     border: solid;
     border-width: 0.2rem;
-    border-color: var(--white);
+    border-color: whitesmoke;
+    margin-left: 20px;
+    margin-right: 20px;
+    white-space: nowrap;
+    text-align: center;
+
+    font-family: var(--josefin);
+    background-color: var(--darkbrown);
+    color: whitesmoke;
+    border-color: whitesmoke;
+    border-radius: 100px;
 }
 
 .btn:hover {

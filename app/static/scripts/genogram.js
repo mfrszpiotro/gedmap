@@ -1,3 +1,42 @@
+// STYLING SECTION BEGIN
+// This section provides a common style for most of the TextBlocks.
+// Some of these values may be overridden in a particular snippet.
+const cssColors = {
+    "black": "#0e2229",
+    "darkbrown": "#362418",
+    "orange": "#FC440F",
+    "darkblue": "#1F01B9",
+    "cyan": "#2E8087",
+    "white": "#ffecbd",
+    "gray": "#7C9299",
+}
+
+const gradient = {
+    "first": "#f5f5f5",
+    "second": "#f5f5f5",
+    "third": "#f5f5f5",
+    "fourth": "#f5f5f5",
+    "fifth": "#f5f5f5"
+}
+
+const levelColors = [
+    gradient.first,
+    gradient.second,
+    gradient.third,
+    gradient.fourth,
+    gradient.fifth
+];
+
+const fonts = {
+    "title": "12pt Josefin Sans",
+    "regular": "10pt  Open Sans",
+    "comments": "italic 9pt Josefin Sans"
+}
+
+function textStyle() {
+    return { font: fonts.regular, stroke: "white" };
+}
+// STYLING SECTION END
 
 // A custom layout that shows the two families related to a person's parents
 class GenogramLayout extends go.LayeredDigraphLayout {
@@ -184,8 +223,15 @@ class GenogramLayout extends go.LayeredDigraphLayout {
         super.commitNodes();
         // position regular nodes
         this.network.vertexes.each(v => {
-            if (v.node !== null && !v.node.isLinkLabel) {
-                v.node.position = new go.Point(v.x, v.y);
+            if (v.node !== null) {
+                const level = v.level % (levelColors.length);
+                const color = levelColors[level];
+                const shape = v.node.findObject("SHAPE");
+                // TODO
+                //if (shape) shape.stroke = $(go.Brush, "Linear", { 0: color, 1: go.Brush.lightenBy(color, 0.05), start: go.Spot.Left, end: go.Spot.Right });
+                if (!v.node.isLinkLabel) {
+                    v.node.position = new go.Point(v.x, v.y);
+                }
             }
         });
 
@@ -376,87 +422,92 @@ function init() {
     myDiagram =
         new go.Diagram("myDiagramDiv",
             {
-                "animationManager.isEnabled": false,
+                allowCopy: false,
                 initialAutoScale: go.Diagram.Uniform,
+                "animationManager.isEnabled": false,
                 "undoManager.isEnabled": true,
-                maxSelectionCount: 1,
-                // when a node is selected, draw a big yellow circle behind it
+                validCycle: go.Diagram.CycleDestinationTree, // make sure users can only create trees
                 nodeSelectionAdornmentTemplate:
                     $(go.Adornment, "Auto",
                         { layerName: "Grid" },  // the predefined layer that is behind everything else
-                        $(go.Shape, "Circle", { fill: "#c1cee3", stroke: null }),
-                        $(go.Placeholder, { margin: 2 })
+                        $(go.Shape, "RoundedRectangle", { fill: cssColors.orange, stroke: null }),
+                        $(go.Placeholder, { margin: 0.2 })
                     ),
                 layout:  // use a custom layout, defined above
                     $(GenogramLayout, { direction: 90, layerSpacing: 30, columnSpacing: 10 })
             });
 
-
-    // two different node templates, one for each sex,
-    // named by the category value in the node data object
-    myDiagram.nodeTemplateMap.add("M",  // male
-        $(go.Node, "Vertical",
+    myDiagram.nodeTemplate = 
+        $(go.Node, "Spot",
             {
-                locationSpot: go.Spot.Center, locationObjectName: "ICON",
-                selectionObjectName: "ICON"
+                selectionObjectName: "BODY",
             },
-            new go.Binding("opacity", "hide", h => h ? 0 : 1),
-            new go.Binding("pickable", "hide", h => !h),
-            $(go.Panel,
-                { name: "ICON" },
-                $(go.Shape, "Square",
-                    { width: 40, height: 40, strokeWidth: 2, fill: "white", stroke: "#919191", portId: "" }),
-                $(go.Panel,
-                    { // for each attribute show a Shape at a particular place in the overall square
-                        itemTemplate:
-                            $(go.Panel,
-                                // $(go.Shape)
-                            ),
-                        margin: 1
-                    },
-                    new go.Binding("itemArray", "a")
-                )
-            ),
-            $(go.TextBlock,
-                { textAlign: "center", maxSize: new go.Size(80, NaN), background: "rgba(255,255,255,0.5)" },
-                new go.Binding("text", "n"))
-        ));
-
-    myDiagram.nodeTemplateMap.add("F",  // female
-        $(go.Node, "Vertical",
-            {
-                locationSpot: go.Spot.Center, locationObjectName: "ICON",
-                selectionObjectName: "ICON"
-            },
-            new go.Binding("opacity", "hide", h => h ? 0 : 1),
-            new go.Binding("pickable", "hide", h => !h),
-            $(go.Panel,
-                { name: "ICON" },
-                $(go.Shape, "Circle",
-                    { width: 40, height: 40, strokeWidth: 2, fill: "white", stroke: "#a1a1a1", portId: "" }),
-                $(go.Panel,
-                    { // for each attribute show a Shape at a particular place in the overall circle
-                        itemTemplate:
-                            $(go.Panel,
-                                // $(go.Shape)
-                            ),
-                        margin: 1
-                    },
-                    new go.Binding("itemArray", "a")
-                )
-            ),
-            $(go.TextBlock,
-                { textAlign: "center", maxSize: new go.Size(80, NaN), background: "rgba(255,255,255,0.5)" },
-                new go.Binding("text", "n"))
-        ));
+            // for sorting, have the Node.text be the data.name
+            new go.Binding("text", "n"),
+            // bind the Part.layerName to control the Node's layer depending on whether it isSelected
+            new go.Binding("layerName", "isSelected", sel => sel ? "Foreground" : "").ofObject(),
+            $(go.Panel, "Auto",
+                { name: "BODY" },
+                // define the node's outer shape
+                $(go.Shape, "RoundedRectangle",
+                    { name: "SHAPE", fill: cssColors.cyan, stroke: 'whitesmoke', strokeWidth: 3.5, portId: "" }),
+                $(go.Panel, "Vertical",
+                    $(go.Panel, "Table",
+                        {
+                            minSize: new go.Size(120, NaN),
+                            maxSize: new go.Size(140, NaN),
+                            margin: new go.Margin(10, 0, 6, 6),
+                            defaultAlignment: go.Spot.Left
+                        },
+                        $(go.RowColumnDefinition, { column: 2, width: 4 }),
+                        $(go.TextBlock, textStyle(),  // firstname
+                            {
+                                name: "NAMETB",
+                                row: 0, column: 0, columnSpan: 5,
+                                font: fonts.title,
+                                editable: true, isMultiline: false,
+                                minSize: new go.Size(50, 16)
+                            },
+                            new go.Binding("text", "fn").makeTwoWay()),
+                        $(go.TextBlock, textStyle(),  // surname
+                            {
+                                name: "SURNAMETB",
+                                row: 1, column: 0, columnSpan: 5,
+                                font: fonts.title,
+                                editable: true, isMultiline: false,
+                                minSize: new go.Size(50, 16)
+                            },
+                            new go.Binding("text", "ln").makeTwoWay()),
+                        $(go.TextBlock, textStyle(),
+                            { row: 1, column: 0 }),
+                        $(go.TextBlock, textStyle(),
+                            {
+                                row: 0, column: 8, columnSpan: 4,
+                                editable: false, isMultiline: false,
+                                margin: new go.Margin(0, 0, 0, 3)
+                            },
+                            new go.Binding("text", "gs").makeTwoWay()),
+                        $(go.TextBlock, textStyle(),  // the comments
+                            {
+                                row: 3, column: 0, columnSpan: 5,
+                                font: fonts.comments,
+                                wrap: go.TextBlock.WrapFit,
+                                editable: true,  // by default newlines are allowed
+                                minSize: new go.Size(100, 14)
+                            },
+                            new go.Binding("text", "comments").makeTwoWay())
+                    ) // end Table Panel
+                ) // end Horizontal Panel
+            ), // end Auto Panel
+        );  // end Node, a Spot Panel
 
     myDiagram.linkTemplate =  // for parent-child relationships
         $(go.Link,
             {
-                routing: go.Link.Orthogonal, corner: 10, curviness: 15,
-                layerName: "Background", selectable: false
+                routing: go.Link.Orthogonal, corner: 5,
+                layerName: "Background", selectable: true
             },
-            $(go.Shape, { stroke: "gray", strokeWidth: 2 })
+            $(go.Shape, { strokeWidth: 1.5, stroke: cssColors.gray })
         );
 
     myDiagram.linkTemplateMap.add("Marriage",  // for marriage relationships
@@ -467,13 +518,94 @@ function init() {
                 fromSpot: go.Spot.LeftRightSides, toSpot: go.Spot.LeftRightSides,
                 selectable: false, isTreeLink: false, layerName: "Background"
             },
-            $(go.Shape, { strokeWidth: 2.5, stroke: "#5d8cc1" /* blue */ })
+            $(go.Shape, { strokeWidth: 2.5, stroke: cssColors.darkbrown })
         ));
 
-    // n: name, s: sex, m: mother, f: father, ux: wife, vir: husband, a: attributes/markers
+    // the context menu allows users to make a position vacant,
+    // remove a role and reassign the subtree, or remove a department
+    myDiagram.nodeTemplate.contextMenu =
+        $("ContextMenu",
+            $("ContextMenuButton",
+                $(go.TextBlock, "Erase Credentials"),
+                {
+                    click: (e, button) => {
+                        const node = button.part.adornedPart;
+                        if (node !== null) {
+                            const thisemp = node.data;
+                            myDiagram.startTransaction("vacate");
+                            // update the key, name, picture, and comments, but leave the title
+                            myDiagram.model.setDataProperty(thisemp, "n", "(new member)");
+                            myDiagram.model.setDataProperty(thisemp, "pic", "");
+                            myDiagram.model.setDataProperty(thisemp, "comments", "");
+                            myDiagram.commitTransaction("vacate");
+                        }
+                    }
+                }
+            ),
+            $("ContextMenuButton",
+                $(go.TextBlock, "Remove Member"),
+                {
+                    click: (e, button) => {
+                        // remove the whole subtree, including the node itself
+                        const node = button.part.adornedPart;
+                        if (node !== null) {
+                            myDiagram.startTransaction("remove memb");
+                            myDiagram.removeParts(node.findTreeParts());
+                            myDiagram.commitTransaction("remove memb");
+                        }
+                    }
+                }
+            )
+        );
+
+    // when the document is modified, add a "*" to the title and enable the "Save" button
+    myDiagram.addDiagramListener("Modified", e => {
+        const button = document.getElementById("SaveButton");
+        if (button) button.disabled = !myDiagram.isModified;
+        const idx = document.title.indexOf("*");
+        if (myDiagram.isModified) {
+            if (idx < 0) document.title += "*";
+        } else {
+            if (idx >= 0) document.title = document.title.slice(0, idx);
+        }
+    });
+
+    document.getElementById('zoomToFit').addEventListener('click', () => myDiagram.commandHandler.zoomToFit());
+
+    document.getElementById('fullscreen').addEventListener('click', () => {
+      document.getElementById("myDiagramDiv").requestFullscreen()
+      setTimeout(() => {
+        myDiagram.scale = 1;
+        myDiagram.commandHandler.scrollToPart(myDiagram.findNodeForKey(1));
+      }, 500)
+    })
+  
+    document.getElementById('centerRoot').addEventListener('click', () => {
+      myDiagram.scale = 1;
+      myDiagram.commandHandler.scrollToPart(myDiagram.findNodeForKey(1));
+    });
+
     let peopleData = document.getElementById('peopleDataTest').textContent;
     setupDiagram(myDiagram, JSON.parse(peopleData),
         4 /* focus on this person */);
 }
+
+// TODO:
+// // Show the diagram's model in JSON format
+// function save() {
+//   document.getElementById("peopleDataTest").value = myDiagram.model.toJson();
+//   myDiagram.isModified = false;
+// }
+// function load() {
+//   myDiagram.model = go.Model.fromJson(document.getElementById("peopleDataTest").value);
+//   // make sure new data keys are unique positive integers
+//   let lastkey = 1;
+//   myDiagram.model.makeUniqueKeyFunction = (model, data) => {
+//     let k = data.key || lastkey;
+//     while (model.findNodeDataForKey(k)) k++;
+//     data.key = lastkey = k;
+//     return k;
+//   };
+// }
 
 window.addEventListener('DOMContentLoaded', init);

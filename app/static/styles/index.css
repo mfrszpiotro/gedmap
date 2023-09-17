@@ -76,6 +76,7 @@ body{
 }
 
 #sides-section-mobile {
+    scroll-behavior: smooth;
     display: flex;
     flex-wrap: nowrap;
     overflow-x: auto;
@@ -83,6 +84,20 @@ body{
 
 .card {
     flex: 0 0 auto;
+}
+
+.btn-example{
+    background-color: var(--cyan);
+    font-family: var(--josefin) !important;
+    font-size: 20px;
+    font-weight: 400;
+}
+
+.btn-start{
+    background-color: var(--gray);
+    font-family: var(--josefin) !important;
+    font-size: 20px;
+    font-weight: 400;
 }
 
 @media only screen and (min-width: 1px) {

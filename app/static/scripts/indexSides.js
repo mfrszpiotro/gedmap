@@ -1,6 +1,7 @@
 const leftSide = document.getElementById("left-side");
 const rightSide = document.getElementById("right-side");
 const container = document.getElementById("sides-container");
+const mobileContainer = document.getElementById("sides-section-mobile");
 const topLeft = leftSide.style.top;
 const topRight = rightSide.style.top;
 const classListDefault = 'svg-triangle'
@@ -30,6 +31,7 @@ function checkScroll() {
 }
 
 function init() {
+    mobileContainer.scrollTo(mobileContainer.offsetWidth/2 - 50 , 0);
     ['scroll', 'resize'].forEach(event =>
         window.addEventListener(event, checkScroll)
     );

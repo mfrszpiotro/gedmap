@@ -1,6 +1,17 @@
-#mySavedModel {
-    visibility: hidden;
-    height: 0px;
+#viewing-icon {
+    margin: 10px;
+    width: 100px;
+    background-color: whitesmoke;
+    border: 20cm;
+    border-color: red;
+}
+
+h4 {
+    margin: 0;
+    font-family: var(--open);
+    font-weight: lighter;
+    font-size: 15px;
+    word-wrap: break-word;
 }
 
 .gentree {
@@ -23,21 +34,31 @@
     grid-gap: 10px;
 }
 
+.btn {
+    margin: 5px;
+}
+
 .save {
-    background-color: var(--orange);
+    background-color: var(--gray);
 }
 
 .zoom {
-    background-color: var(--orange);
+    background-color: var(--gray);
 }
 
 .content {
     height: 90vh;
 }
 
+.block-a,
+.block-b,
+.block-c {
+    float: left;
+    min-width: 180px;
+}
+
 @media screen and (min-width: 600px) {
 
-    /* no grid support? */
     .block-a,
     .block-b,
     .block-c {
