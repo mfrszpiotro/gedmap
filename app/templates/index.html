@@ -1,41 +1,60 @@
-
 {% extends 'appbase.html' %}
 
 {% block content %}
-    <section>
-        <div id="welcome">
-            <h1>Show your geneaology tree to the world.</h1>
-            <h1>Better.</h1>
-            <div>Start now with just one import of your GEDCOM file and easily migrate from </div>
-            <div>MyHeritage, Ancestry and more.</div>
-            <h1></h1>
-            <form id="example-form" method="post">
-                <button name="example" value=1 type="submit" formmethod="post" class="btn btn-example"><h2 class="btn-example">Show example</h2></button>
-                <button type="none" class="btn btn-start"><h2 class="btn-start">Get started</h2></button>
-
-            </form>
-        </div>
-    </section>
-    <section id="sides-section">
-        <div id="left-container">
-            <div id="svg-container">
-                <img id="left-side" class="svg-triangle sides-hide" src="{{ url_for('static', filename='images/left-triangle.svg') }}">
+<section>
+    <div id="welcome">
+        <h1>Show your geneaology tree to the world.</h1>
+        <h1>Better.</h1>
+        <div>Start now with just one import of your GEDCOM file and easily migrate from </div>
+        <div>MyHeritage, Ancestry and more.</div>
+        <h1></h1>
+        <form id="example-form" class method="post">
+            <button name="example" value=1 type="submit" formmethod="post" class="btn btn-example">
+                <h2 class="btn-example">Show example</h2>
+            </button>
+            <button id="btn-start" type="button" class="btn btn-start">
+                <h2 class="btn-start">Get started</h2>
+            </button>
+        </form>
+    </div>
+</section>
+<section id="sides-section">
+    <div id="left-container">
+        <div id="svg-container">
+            <div class="side-text-container">
+                <div id="left-side-text">
+                    <img class="shape-outside-left sides-hide" src="{{ url_for('static', filename='images/left-triangle.svg') }}">
+                    <h2>We had agreed, my companion and I, that I should call for him at his house, after dinner, not later than eleven o’clock. This athletic young Frenchman belongs to a small set of Parisian sportsmen, who have taken up “ballooning” as a pastime. After having exhausted all the sensations that are to be found in ordinary sports, even those of “automobiling” at a breakneck speed, the members of the “Aéro Club” now seek in the air, where they indulge in all kinds of daring feats, the nerve-racking excitement that they have ceased to find on earth.</h2>
+                </div>
+                <img id="left-side-svg" class="svg-triangle sides-hide"
+                    src="{{ url_for('static', filename='images/left-triangle.svg') }}">
             </div>
         </div>
-        <div id="right-container">
-            <div id="svg-container">
-                <img id="right-side" class="svg-triangle sides-hide" src="{{ url_for('static', filename='images/right-triangle.svg') }}">
+    </div>
+    <div id="right-container">
+        <div id="svg-container">
+            <div class="side-text-container">
+                <div id="right-side-text">
+                    <img class="shape-outside-right sides-hide" src="{{ url_for('static', filename='images/right-triangle.svg') }}">
+                    <h2>We had agreed, my companion and I, that I should call for him at his house, after dinner, not later than eleven o’clock. This athletic young Frenchman belongs to a small set of Parisian sportsmen, who have taken up “ballooning” as a pastime. After having exhausted all the sensations that are to be found in ordinary sports, even those of “automobiling” at a breakneck speed, the members of the “Aéro Club” now seek in the air, where they indulge in all kinds of daring feats, the nerve-racking excitement that they have ceased to find on earth.</h2>
+                </div>
+                <img id="right-side-svg" class="test-shape-outside svg-triangle sides-hide"
+                    src="{{ url_for('static', filename='images/right-triangle.svg') }}">
             </div>
         </div>
-    </section>
-    <section id="sides-section-mobile">
-        <div class="card">
-            <img id="left-side" class="svg-triangle sides-hide" src="{{ url_for('static', filename='images/left-triangle.svg') }}">
-        </div>
-        <div class="card">
-            <img id="right-side" class="svg-triangle sides-hide" src="{{ url_for('static', filename='images/right-triangle.svg') }}">
-        </div>
-    </section>
-    <div id="fill"></div>
-    <script type="text/javascript" src="{{ url_for('static', filename='scripts/indexSides.js') }}"></script>
+    </div>
+</section>
+<section id="sides-section-mobile">
+    <div class="card">
+        <img id="left-side-svg" class="svg-triangle sides-hide"
+            src="{{ url_for('static', filename='images/left-triangle.svg') }}">
+    </div>
+    <div class="card">
+        <img id="right-side-svg" class="svg-triangle sides-hide"
+            src="{{ url_for('static', filename='images/right-triangle.svg') }}">
+    </div>
+</section>
+<div id="fill">
+</div>
+<script type="text/javascript" src="{{ url_for('static', filename='scripts/indexSides.js') }}"></script>
 {% endblock %}
