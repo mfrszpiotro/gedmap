@@ -47,17 +47,16 @@ body{
     top: 0;
 }
 
-.side-text-container{
+.left-side-text-container{
     position: relative;
     text-align: center;
+    float: left;
 }
 
 .shape-outside-left{
     visibility: hidden;
     float: right;
     shape-outside: polygon(100% 0, 100% 100%, 0 100%, 100% 50%, 0 0);;
-    shape-margin: 50px;
-    width: 100% !important;
 }
 
 #left-side-text {
@@ -69,12 +68,22 @@ body{
     position: absolute;
 }
 
+#left-side-svg {
+    float: left;
+    left: -10px;
+    position: relative;
+}
+
+.right-side-text-container{
+    position: relative;
+    text-align: center;
+    float: right;
+}
+
 .shape-outside-right{
     visibility: hidden;
     float: left;
     shape-outside: polygon(100% 0, 0 50%, 100% 100%, 0 100%, 0 0);
-    shape-margin: 50px;
-    width: 100%;
 }
 
 #right-side-text {
@@ -82,14 +91,7 @@ body{
     float: right;
     right: 30px;
     top: -10vh;
-    max-width: 50vh;
     position: absolute;
-}
-
-#left-side-svg {
-    float: left;
-    left: -10px;
-    position: relative;
 }
 
 #right-side-svg {
