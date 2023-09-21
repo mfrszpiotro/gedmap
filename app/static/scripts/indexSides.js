@@ -1,33 +1,34 @@
 const leftSide = document.getElementById("left-side-svg");
 const rightSide = document.getElementById("right-side-svg");
-const container = document.getElementById("sides-container");
+const textLeft = document.getElementById("left-side-text");
+const textRight = document.getElementById("right-side-text");
 const mobileContainer = document.getElementById("sides-section-mobile");
 const topLeft = leftSide.style.top;
 const topRight = rightSide.style.top;
-const startButton = document.getElementById("btn-start")
-const classListDefault = 'svg-triangle'
-
-function isSmallScreen() {
-    return window.matchMedia("(max-width: 1600px)").matches;
-}
-
-//todo: function isMobile
+const startButton = document.getElementById("btn-start");
+const sideDefault = 'svg-triangle';
+const textContLeftDefault = 'sides-hide';
+const textContRightDefault = 'sides-hide';
 
 function checkScroll() {
     let vertScroll = window.scrollY;
-    let isSmall = isSmallScreen()
-    //todo: let isMobile
-    if(vertScroll >= (isSmall ? 400 : 600)) {
-        leftSide.classList = classListDefault;
-        rightSide.classList = classListDefault;
+    if(vertScroll >= 400) {
+        leftSide.classList = sideDefault;
+        rightSide.classList = sideDefault;
         leftSide.classList.add('sides-show');
         rightSide.classList.add('sides-show');
+        textLeft.classList = textContLeftDefault;
+        textRight.classList = textContRightDefault;
     }
     else {
-        leftSide.classList = classListDefault;
-        rightSide.classList = classListDefault;
+        leftSide.classList = sideDefault;
+        rightSide.classList = sideDefault;
         leftSide.classList.add('sides-hide');
         rightSide.classList.add('sides-hide');
+        textLeft.classList = textContLeftDefault;
+        textRight.classList = textContRightDefault;
+        textLeft.classList.add('hidden');
+        textRight.classList.add('hidden');
     }
 }
 
