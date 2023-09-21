@@ -8,7 +8,8 @@ import os
 @bp.route("/viewer", methods=["GET", "POST"])
 def viewer():
     if not (session.get("filename") or session.get("view_model")):
-        return redirect(url_for("main.index"))
+        flash("You have to import a GEDCOM file first.", "error")
+        return redirect(url_for("trees.imports"))
     return render_template("trees/viewer.html")
 
 

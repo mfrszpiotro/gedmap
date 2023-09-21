@@ -10,7 +10,6 @@ input[type="file"] {
     max-width: 400px;
     position: relative;
     text-align: center;
-    
     background-color: var(--cyan);
     color: whitesmoke;
     border: 40px solid whitesmoke;
@@ -49,6 +48,7 @@ h1{
 
 #file-image{
     width: 80%;
+    height: 256px;
     margin-bottom: 70px;
 }
 

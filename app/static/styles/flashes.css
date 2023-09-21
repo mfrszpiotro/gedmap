@@ -21,10 +21,11 @@
 
 .success {
   padding: 20px;
-  color: white;
+  color: whitesmoke;
   margin-bottom: 15px;
-  background-color: #292929;
-  border: 3px solid white;
+  background-color: var(--darkbrown);
+  border: 10px solid whitesmoke;
+  border-radius: 100px;
   max-width: 350px;
   animation-duration: 1s;
   animation-name: fromleft;
@@ -32,10 +33,11 @@
 
 .error {
   padding: 20px;
-  color: white;
+  color: whitesmoke;
   margin-bottom: 15px;
-  background-color: #292929;
-  border: 3px solid white;
+  background-color: var(--darkbrown);
+  border: 10px solid whitesmoke;
+  border-radius: 100px;
   max-width: 350px;
   animation-duration: 1s;
   animation-name: fromright;

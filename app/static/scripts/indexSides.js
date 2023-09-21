@@ -19,6 +19,8 @@ function checkScroll() {
         rightSide.classList.add('sides-show');
         textLeft.classList = textContLeftDefault;
         textRight.classList = textContRightDefault;
+        textLeft.classList.add('show');
+        textRight.classList.add('show');
     }
     else {
         leftSide.classList = sideDefault;
@@ -27,8 +29,6 @@ function checkScroll() {
         rightSide.classList.add('sides-hide');
         textLeft.classList = textContLeftDefault;
         textRight.classList = textContRightDefault;
-        textLeft.classList.add('hidden');
-        textRight.classList.add('hidden');
     }
 }
 

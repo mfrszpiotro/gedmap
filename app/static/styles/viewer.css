@@ -46,10 +46,6 @@ h4 {
     background-color: var(--gray);
 }
 
-.content {
-    height: 90vh;
-}
-
 .block-a,
 .block-b,
 .block-c {
