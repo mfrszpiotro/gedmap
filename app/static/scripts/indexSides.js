@@ -1,37 +1,33 @@
-const leftSide = document.getElementById("left-side");
-const rightSide = document.getElementById("right-side");
-const container = document.getElementById("sides-container");
-const mobileContainer = document.getElementById("sides-section-mobile");
-const topLeft = leftSide.style.top;
-const topRight = rightSide.style.top;
-const classListDefault = 'svg-triangle'
-
-function isSmallScreen() {
-    return window.matchMedia("(max-width: 1600px)").matches;
-}
-
-//todo: function isMobile
+const leftSide = document.getElementById("left-side-svg");
+const rightSide = document.getElementById("right-side-svg");
+const textLeft = document.getElementById("left-side-text");
+const textRight = document.getElementById("right-side-text");
+const sideDefault = 'svg-triangle';
+const textContDefault = 'sides-hide';
 
 function checkScroll() {
     let vertScroll = window.scrollY;
-    let isSmall = isSmallScreen()
-    //todo: let isMobile
-    if(vertScroll >= (isSmall ? 400 : 600)) {
-        leftSide.classList = classListDefault;
-        rightSide.classList = classListDefault;
+    if(vertScroll >= 400) {
+        leftSide.classList = sideDefault;
+        rightSide.classList = sideDefault;
         leftSide.classList.add('sides-show');
         rightSide.classList.add('sides-show');
+        textLeft.classList = textContDefault;
+        textRight.classList = textContDefault;
+        textLeft.classList.add('show');
+        textRight.classList.add('show');
     }
     else {
-        leftSide.classList = classListDefault;
-        rightSide.classList = classListDefault;
+        leftSide.classList = sideDefault;
+        rightSide.classList = sideDefault;
         leftSide.classList.add('sides-hide');
         rightSide.classList.add('sides-hide');
+        textLeft.classList = textContDefault;
+        textRight.classList = textContDefault;
     }
 }
 
 function init() {
-    mobileContainer.scrollTo(mobileContainer.offsetWidth/2 - 50 , 0);
     ['scroll', 'resize'].forEach(event =>
         window.addEventListener(event, checkScroll)
     );

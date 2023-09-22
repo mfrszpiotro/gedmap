@@ -268,14 +268,14 @@ h1 {
     nav {
         width: 102%;
         background-color: var(--darkbrown);
-        border: 40px solid whitesmoke;
+        border: 30px solid whitesmoke;
         border-radius: 100px;
         font-family: var(--open);
         font-size: 20px;
         position: fixed;
         left: 50%;
         transform: translateX(-50%);
-        top: -350px;
+        top: -340px;
         padding: 1rem;
         padding-bottom: 0;
         box-shadow: 0px 7px 5px var(--darkbrown);

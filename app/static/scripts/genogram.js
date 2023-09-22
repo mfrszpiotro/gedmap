@@ -423,7 +423,7 @@ function init() {
         new go.Diagram("myDiagramDiv",
             {
                 allowCopy: false,
-                initialAutoScale: go.Diagram.Uniform,
+                //initialAutoScale: go.Diagram.Uniform,
                 "animationManager.isEnabled": false,
                 "undoManager.isEnabled": true,
                 validCycle: go.Diagram.CycleDestinationTree, // make sure users can only create trees
