@@ -9,4 +9,8 @@ def index():
             session["view_model"] = get_view_model(EXAMPLE_FILE)
             session["filename"] = EXAMPLE_FILE
             return redirect(url_for("trees.viewer"))
+        
+        if request.form.get("start"):
+            return redirect(url_for("trees.imports"))
+
     return render_template("index.html")

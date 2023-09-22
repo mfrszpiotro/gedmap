@@ -25,7 +25,7 @@
                             important family stories. GedMap allows you to highlight tree branches, rearrange leaves and
                             many more. Discover it yourself.
                         </h4>
-                        <form id="example-form" class method="post">
+                        <form id="example-form" method="post">
                             <button name="example" value=1 type="submit" class="btn btn-side btn-example">
                                 <h2 class="btn-example">Show example</h2>
                             </button>
@@ -50,11 +50,11 @@
                             GedMap users or with anyone outside by copy-pasting links. Viewer is suitable for all browsers including
                             mobile devices.
                         </h4>
-                        <div>
-                            <button id="btn-start" type="button" class="btn btn-side btn-start">
+                        <form id="start-form" method="post">
+                            <button name="start" value=1 type="submit" class="btn btn-side btn-start">
                                 <h2 class="btn-start">Get started</h2>
                             </button>
-                        </div>
+                        </form>
                     </section>
                 </div>
                 <img id="right-side-svg" class="test-shape-outside svg-triangle sides-hide"
@@ -106,10 +106,41 @@
 <div><h1 class="fill">.</h1></div>
 <section id="sides-section-mobile">
     <div class="card">
+        <div id="left-side-text-mobile">
+            <img class="shape-outside-left sides-hide">
+            <h1 class="side-text">
+                Preserve memories in your own way.
+            </h1>
+            <h4 class="side-text">
+                Manage your geneaology tree layout or use various tools to put an emphasis on your most
+                important family stories. GedMap allows you to highlight tree branches, rearrange leaves and
+                many more. Discover it yourself.
+            </h4>
+            <form id="example-form" method="post">
+                <button name="example" value=1 type="submit" class="btn btn-side btn-example">
+                    <h2 class="btn-example">Show example</h2>
+                </button>
+            </form>
+        </div>
         <img id="left-side-svg" class="svg-triangle sides-hide"
             src="{{ url_for('static', filename='images/left-triangle.svg') }}">
     </div>
     <div class="card">
+        <div id="right-side-text-mobile">
+            <img class="shape-outside-right sides-hide">
+            <h1 class="side-text">
+                Accessible for every member of your family.
+            </h1>
+            <h4 class="side-text">Register, log in, and provide access for your family. All genograms can be shared with other
+                GedMap users or with anyone outside by copy-pasting links. Viewer is suitable for all browsers including
+                mobile devices.
+            </h4>
+            <form id="start-form" method="post">
+                <button name="start" value=1 type="submit" class="btn btn-side btn-start">
+                    <h2 class="btn-start">Get started</h2>
+                </button>
+            </form>
+        </div>
         <img id="right-side-svg" class="svg-triangle sides-hide"
             src="{{ url_for('static', filename='images/right-triangle.svg') }}">
     </div>
